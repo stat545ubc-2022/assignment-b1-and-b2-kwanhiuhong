@@ -1,0 +1,48 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# NAToNumeric
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of NAToNumeric is to convert NAs in all numeric columns in a tribble to median of that column.
+
+## Installation
+
+You can install the development version of NAToNumeric from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("stat545ubc-2022/assignment-b1-and-b2-kwanhiuhong")
+```
+
+## Usage
+
+This is a basic example which shows how to use this function:
+
+```{r example}
+library(NAToNumeric)
+library(tidyverse)
+library(datateachr)
+data <- tribble(
+ ~name,            ~birth_weight,  ~birth_year, 
+ "Luke Skywalker",  1.35      ,   1998        , 
+ "C-3PO"         ,  NA        ,   2000        ,  
+ "R2-D2"         ,  2.25      ,   NA        ,  
+ "Darth Vader"   ,  2.70      ,   NA        ,  
+ )
+convert_all_numericNA_to_median(data)
+```
